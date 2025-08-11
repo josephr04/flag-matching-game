@@ -2,6 +2,7 @@ import IMAGES from "@/assets/images/images";
 import { motion } from "framer-motion";
 import { CardList } from "@/feature/LevelCard";
 import { levelItems } from "@/utils/LevelData";
+import { FlagCarousel } from "@/feature/FlagCarousel";
 
 function Home() {
 
@@ -28,7 +29,7 @@ function Home() {
         <div className="overlay w-full h-15 z-5"></div>
       </div>
 
-      <div className="flex flex-col min-h-[30em] bg-[#223A4E] font-[Roboto]">
+      <div className="flex flex-col min-h-[28em] bg-[#223A4E] font-[Roboto]">
         <div className="w-23 pt-5 pb-5">
           <div className=" text-xl font-bold text-white pl-8">
             Levels
@@ -38,6 +39,22 @@ function Home() {
         <div className="flex flex-wrap gap-12 justify-center">
           <CardList list={levelItems}/>
         </div>
+      </div>
+
+      <div className="relative flex flex-col">
+        <div className="w-full h-8 bg-[#223A4E]"></div>
+        <div className="w-full h-8 bg-white"></div>
+        <img src={IMAGES.worldMap} alt="World Map" className="absolute h-30 rounded-xl left-0 right-0 mx-auto w-fit" />
+      </div>
+
+      <div className="flex justify-center min-h-[16em] pb-14">
+        <div className="sm:w-80 w-55 text-center font-normal text-sm mt-auto">
+          There are so many countries out there, each with its own unique flag, culture, and history. This page lets you explore the world in a fun and engaging way.
+        </div>
+      </div>
+
+      <div>
+        <FlagCarousel />
       </div>
     </>
   )
