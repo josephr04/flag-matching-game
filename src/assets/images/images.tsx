@@ -7,6 +7,7 @@ const IMAGES = {
   easyLvl: new URL('./levels/easy-level.png', import.meta.url).href,
   mediumLvl: new URL('./levels/medium-level.png', import.meta.url).href,
   hardLvl: new URL('./levels/hard-level.png', import.meta.url).href,
+  worldMap: new URL('./world-map.png', import.meta.url).href,
 }
 
 export default IMAGES;
