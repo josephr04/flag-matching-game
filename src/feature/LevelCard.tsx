@@ -6,13 +6,13 @@ type Card = {
 
 function CardComponent({ card }: { card: Card }) {
   return (
-    <div className="flex flex-col bg-white p-2 rounded-xl justify-between h-36 min-w-[6.78em]">
+    <a href={`/levels/${card.name}`} className="flex flex-col bg-white p-2 rounded-xl justify-between h-36 min-w-[6.78em]">
       <img src={card.img} alt="Easy Level" className="h-20 rounded-xl max-w-[5.78em]"/>
       <div className="flex flex-col items-center">
         <div className="font-semibold">{card.name}</div>
         <div className="text-sm">{card.description}</div>
       </div>
-    </div>
+    </a>
   )
 }
 
