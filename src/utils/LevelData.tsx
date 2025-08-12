@@ -3,17 +3,17 @@ import IMAGES from "@/assets/images/images"
 export const levelItems = [
   {
     name: "Easy",
-    description: "8 Cards",
+    cards: 8,
     img: IMAGES.easyLvl,
   },
   {
     name: "Medium",
-    description: "12 Cards",
+    cards: 12,
     img: IMAGES.mediumLvl,
   },
   {
     name: "Hard",
-    description: "16 Cards",
+    cards: 16,
     img: IMAGES.hardLvl,
   },
 ];
