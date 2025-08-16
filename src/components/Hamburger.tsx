@@ -16,7 +16,7 @@ function HamburgerComponent() {
 
   return (
     <>
-      <div className="z-20">
+      <div className="z-20 hover:text-[#85ba14] duration-150 ease-out">
         <Hamburger 
           color="#14A5BA" 
           size={26}
@@ -48,10 +48,14 @@ function HamburgerComponent() {
 
 function ListComponent({list}: {list: Label[]}) {
   return (
-    <ul>
+    <ul className="flex flex-col gap-2">
       {list.map(({label, url}) => (
-        <li className="text-xl text-white"><a href={url} rel="noopener noreferrer">{label}</a></li>
+        <li className="text-xl text-white"><a href={url} className="hover:text-[#14A5BA] duration-150 ease-out" rel="noopener noreferrer">{label}</a></li>
       ))}
+      <select name="Language" id="language">
+        <option value="">English</option>
+        <option value="">Spanish</option>
+      </select>
     </ul>
   );
 };
