@@ -1,6 +1,6 @@
 type Card = {
   name: string,
-  description: string,
+  cards: number,
   img: string,
 }
 
@@ -10,7 +10,7 @@ function CardComponent({ card }: { card: Card }) {
       <img src={card.img} alt="Easy Level" className="h-20 rounded-xl max-w-[5.78em]"/>
       <div className="flex flex-col items-center">
         <div className="font-semibold">{card.name}</div>
-        <div className="text-sm">{card.description}</div>
+        <div className="text-sm">{card.cards} Cards</div>
       </div>
     </a>
   )
