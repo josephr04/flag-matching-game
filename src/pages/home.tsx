@@ -3,8 +3,20 @@ import { motion } from "framer-motion";
 import { CardList } from "@/feature/LevelCard";
 import { levelItems } from "@/utils/LevelData";
 import { FlagCarousel } from "@/feature/FlagCarousel";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function Home() {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const el = document.querySelector(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [hash]);
 
   return (
     <>
@@ -29,7 +41,7 @@ function Home() {
         <div className="overlay w-full h-15 z-5"></div>
       </div>
 
-      <div className="flex flex-col min-h-[28em] bg-[#223A4E] font-[Roboto]">
+      <div className="flex flex-col min-h-[28em] bg-[#223A4E] font-[Roboto]" id="levels">
         <div className="w-23 pt-5 pb-5">
           <div className=" text-xl font-bold text-white pl-8">
             Levels

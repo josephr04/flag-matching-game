@@ -4,7 +4,7 @@ export const navItems = [
     url: "/",
   },
   {
-    label: "Language",
-    url: "/",
+    label: "Levels",
+    url: "/#levels",
   },
 ];
