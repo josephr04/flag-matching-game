@@ -17,7 +17,7 @@ function ListComponent({list}: {list: Label[]}) {
   return (
     <ul className="flex">
       {list.map(({label, url}) => (
-        <li className="text-md text-white"><a href={url} className="px-3 py-3 hover:text-[#14A5BA] duration-150 ease-out font-normal" rel="noopener noreferrer">{label}</a></li>
+        <li key={label} className="text-md text-white"><a href={url} className="px-3 py-3 hover:text-[#14A5BA] duration-150 ease-out font-normal" rel="noopener noreferrer">{label}</a></li>
       ))}
       <select className="pl-3" name="Language" id="language">
         <option value="">English</option>

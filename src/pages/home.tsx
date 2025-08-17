@@ -59,7 +59,7 @@ function Home() {
         <img src={IMAGES.worldMap} alt="World Map" className="absolute h-30 rounded-xl left-0 right-0 mx-auto w-fit" />
       </div>
 
-      <div className="flex justify-center min-h-[16em] pb-14">
+      <div className="flex justify-center min-h-[16em] pb-14 bg-white">
         <div className="sm:w-80 w-55 text-center font-normal text-sm mt-auto">
           There are so many countries out there, each with its own unique flag, culture, and history. This page lets you explore the world in a fun and engaging way.
         </div>

@@ -1,7 +1,7 @@
 import IMAGES from '@/assets/images/images';
 import HamburgerComponent from './Hamburger';
 import { useIsMobile } from '@/hooks/useIsMobile';
-import { Navbar } from '@/components/NavBar';
+import { Navbar } from '@/components/Navbar';
 
 export function Header() {
   const isMobile = useIsMobile();
