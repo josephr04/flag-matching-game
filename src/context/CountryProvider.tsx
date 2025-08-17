@@ -8,37 +8,47 @@ export const CountryContext = createContext<{
   error: boolean;
 } | undefined>(undefined);
 
-export function CountryProvider( {children }: { children: ReactNode}) {
-  const [data, setData] = useState<CountryData>({});
+export function CountryProvider({ children }: { children: ReactNode }) {
+  const [data, setData] = useState<CountryData>({} as CountryData);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchFlags = async () => {
-      try {
-        const response = await axios.get<CountryData>(`https://flagcdn.com/en/codes.json`);
-        setData(response.data);
-      } catch (err) {
-        setError(true);
-      } finally {
-        setLoading(false);
+      const storedData = localStorage.getItem('countryData');
+      const startTime = Date.now();
+
+      if (storedData) {
+        setData(JSON.parse(storedData));
+      } else {
+        try {
+          const response = await axios.get<CountryData>('https://flagcdn.com/en/codes.json');
+          setData(response.data);
+          localStorage.setItem('countryData', JSON.stringify(response.data));
+        } catch (err) {
+          setError(true);
+        }
       }
+
+      const elapsed = Date.now() - startTime;
+      const remaining = 700 - elapsed;
+      setTimeout(() => setLoading(false), remaining > 0 ? remaining : 0);
     }
 
-    fetchFlags()
-  }, [])
+    fetchFlags();
+  }, []);
 
   return (
     <CountryContext.Provider value={{ data, loading, error }}>
-      { children }
+      {children}
     </CountryContext.Provider>
   )
 }
 
 export const useCountryContext = () => {
   const context = useContext(CountryContext);
-  if (context === undefined) {
-    throw new Error("useCountryContext must be used within a CountryProvider");
+  if (!context) {
+    throw new Error("useCountryContext must be usado dentro de CountryProvider");
   }
   return context;
 };
