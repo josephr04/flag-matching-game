@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { useCountryContext } from "@/context/CountryProvider";
+import { LoadingBar } from "@/components/Loadings/LoadingBar";
 import type { CountryData } from '@/types/country';
 
 export function FlagCarousel() {
@@ -8,7 +9,7 @@ export function FlagCarousel() {
   const loading = useCountryContext().loading;
   const error = useCountryContext().error;
 
-  if (loading) return <div className='h-[2.5em] flex justify-center items-center'>Loading Flags...</div>;
+  if (loading) return <div className='h-[2.5em] flex justify-center items-center text-white'><LoadingBar /></div>;
   if (error) return <div>Error: {error}</div>;
 
   return (
