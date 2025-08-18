@@ -42,6 +42,20 @@ export function GameCardList({
   }, []);
 
   useEffect(() => {
+    const handleBeforeUnload = (e: BeforeUnloadEvent) => {
+      if (gameStarted && !gameWon) {
+        e.preventDefault();
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [gameStarted, gameWon]);
+
+  useEffect(() => {
     if (gameStarted && !gameWon) {
       timerRef.current = setInterval(() => {
         setTime(prevTime => prevTime + 1);
@@ -154,13 +168,13 @@ export function GameCardList({
 
   return (
     <div className="flex flex-col items-center relative justify-center">
-      <div className="flex flex-wrap gap-4 justify-center py-3 min-h-[300px] relative">
+      <div className="flex flex-wrap gap-4 justify-center py-3 min-h-[18.75em] md:min-h-[20em] md:max-w-[60em] relative">
 
         {/* Initial message */}
         {!gameStarted && gameCards.length === 0 && (
           <div className="flex flex-col items-center justify-center min-w-80 p-6 bg-[#223A4E] text-white rounded-xl">
-            <div className="text-lg mb-4">Click "Start" to begin!</div>
-            <div className="text-sm">Match all flag pairs as fast as you can</div>
+            <div className="text-lg md:text-xl mb-4">Click "Start" to begin!</div>
+            <div className="text-sm md:text-lg">Match all flag pairs as fast as you can</div>
           </div>
         )}
 
@@ -171,7 +185,7 @@ export function GameCardList({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.8 }}
-              className="absolute p-10 flex flex-col items-center justify-center bg-white bg-opacity-90 z-10 rounded-xl w-70 mx-auto"
+              className="absolute p-10 flex flex-col items-center justify-center bg-white bg-opacity-90 z-10 rounded-xl w-70 md:w-80 mx-auto"
             >
               <motion.h2
                 className="text-2xl font-bold text-[#14A5BA] mb-2"
@@ -181,10 +195,10 @@ export function GameCardList({
               >
                 🎉 You win! 🎉
               </motion.h2>
-              <div className="font-medium text-sm mb-5">Great job matching all the flags!</div>
-              <div className="font-medium text-sm">Time: {formatTime(time)}</div>
-              <div className="font-medium text-sm">Moves: {moves}</div>
-              <div className="font-medium text-sm">Accuracy: {calculateAccuracy()}%</div>
+              <div className="font-medium text-sm md:text-base md:text-center mb-5">Great job matching all the flags!</div>
+              <div className="font-medium text-sm md:text-base">Time: {formatTime(time)}</div>
+              <div className="font-medium text-sm md:text-base">Moves: {moves}</div>
+              <div className="font-medium text-sm md:text-base">Accuracy: {calculateAccuracy()}%</div>
               <button
                 onClick={onRestart}
                 className="px-4 py-2 mt-6 bg-[#14A5BA] text-white rounded-lg hover:bg-[#0d8fa3] transition cursor-pointer"

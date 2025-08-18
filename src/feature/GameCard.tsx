@@ -17,7 +17,7 @@ export function GameCard({
 }) {
   return (
     <motion.div
-      className="w-[6em] h-[6em] perspective-[1000px]"
+      className="w-[6em] h-[6em] md:w-[12em] md:h-[12em] perspective-[1000px]" 
       onClick={!isMatched ? onClick : undefined}
       layout
     >
@@ -31,21 +31,27 @@ export function GameCard({
       >
         {/* Front */}
         <motion.div
-          className={`absolute backface-hidden flex bg-[#ddd] rounded-xl h-24 min-w-[6em] w-4 justify-center items-center ${
+          className={`absolute backface-hidden flex bg-[#ddd] rounded-xl h-[6em] w-[6em] md:h-[12em] md:w-[12em] justify-center items-center ${
             isMatched ? "opacity-0" : ""
           }`}
         >
-          <img src={IMAGES.flagMatching} alt="Flag Matching" className="h-16" />
+          <img src={IMAGES.flagMatching} alt="Flag Matching" className="h-10 md:h-28" />
         </motion.div>
 
         {/* Back */}
         <motion.div
-          className={`absolute backface-hidden transform-[rotateY(180deg)] flex flex-col bg-white rounded-xl h-24 min-w-[6em] w-4 justify-center items-center gap-2 ${
+          className={`absolute backface-hidden transform-[rotateY(180deg)] flex flex-col bg-white rounded-xl h-[6em] w-[6em] md:h-[12em] md:w-[12em] justify-center items-center gap-2 md:gap-4 ${
             isMatched ? "opacity-0" : ""
           }`}
         >
-          <img src={`https://flagcdn.com/h240/${code}.png`} alt={name} className="w-[4.5em] h-[3em]" />
-          <div className="font-medium text-xs text-center w-19">{name}</div>
+          <img 
+            src={`https://flagcdn.com/h240/${code}.png`} 
+            alt={name} 
+            className="w-[4.5em] h-[3em] md:w-[10em] md:h-[6em]" 
+          />
+          <div className="font-medium text-xs md:text-lg text-center w-19 md:w-auto">
+            {name}
+          </div>
         </motion.div>
       </motion.div>
     </motion.div>
