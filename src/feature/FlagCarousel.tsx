@@ -28,12 +28,15 @@ export function FlagCarousel() {
           <Flag code={code} name={name} />
         </SwiperSlide>
       ))}
+
     </Swiper>
   );
 }
 
 function Flag({ code, name }: CountryData) {
   return (
-    <img src={`https://flagcdn.com/h240/${code}.png`} loading='lazy' decoding="async" alt={name} className='w-[3.75em] h-[2.5em]' />
+    <a href={`https://en.wikipedia.org/wiki/${name}`} target="_blank" rel="noopener noreferrer" data-tooltip-id="tooltip" data-tooltip-content={name} data-tooltip-place="top">
+      <img src={`https://flagcdn.com/h240/${code}.png`} loading='lazy' decoding="async" alt={name} className='w-[3.75em] h-[2.5em]' />
+    </a>
   );
 }

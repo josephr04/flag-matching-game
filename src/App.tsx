@@ -6,6 +6,8 @@ import { CountryProvider } from './context/CountryProvider';
 import './App.css';
 import { LoadingScreen } from "@/components/Loadings/LoadingScreen";
 import { useState, useEffect } from "react";
+import { Tooltip } from "react-tooltip";
+import 'react-tooltip/dist/react-tooltip.css'
 
 function App() {
   const [showLoading, setShowLoading] = useState(false);
@@ -45,6 +47,8 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+
+      <Tooltip id="tooltip" />
     </CountryProvider>
   );
 }
