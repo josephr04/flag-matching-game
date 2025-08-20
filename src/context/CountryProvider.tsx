@@ -23,8 +23,12 @@ export function CountryProvider({ children }: { children: ReactNode }) {
       } else {
         try {
           const response = await axios.get<CountryData>('https://flagcdn.com/en/codes.json');
-          setData(response.data);
-          localStorage.setItem('countryData', JSON.stringify(response.data));
+          const filteredData: CountryData = Object.fromEntries(
+            Object.entries(response.data).filter(([code]) => !code.includes("-"))
+          );
+
+          setData(filteredData);
+          localStorage.setItem('countryData', JSON.stringify(filteredData));
         } catch (err) {
           setError(true);
         }

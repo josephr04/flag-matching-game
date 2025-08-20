@@ -1,4 +1,4 @@
-import type { CountryData } from "@/types/country";
+import type { Country } from "@/types/country";
 import { motion } from "framer-motion";
 import IMAGES from "@/assets/images/images";
 
@@ -9,7 +9,7 @@ export function GameCard({
   onClick,
   isMatched,
   isMatching
-}: CountryData & { 
+}: Country & { 
   isFlipped: boolean;
   onClick: () => void;
   isMatched: boolean;
