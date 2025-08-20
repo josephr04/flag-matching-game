@@ -5,9 +5,11 @@ import { levelItems } from "@/utils/LevelData";
 import { FlagCarousel } from "@/feature/FlagCarousel";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 function Home() {
   const { hash } = useLocation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (hash) {
@@ -35,16 +37,16 @@ function Home() {
             <img src={IMAGES.flagMatching} alt="Flag Matching Logo" className="z-5 h-33 md:h-55"/>
           </motion.div>
           <div className="z-5 text-center font-normal font-[Roboto] text-white text-sm md:text-lg md:w-lg w-55">
-            Test your geography and memory skills by matching each country to its correct flag.
+            {t('welcome')}
           </div>
         </motion.div>
         <div className="overlay w-full h-15 z-5"></div>
       </div>
 
       <div className="flex flex-col min-h-[28em] md:min-h-[40rem] bg-[#223A4E] font-[Roboto] md:pb-15 min-w-[18.75em]" id="levels">
-        <div className="w-23 md:w-32 pt-5 md:pt-10 pb-5 md:pb-10">
+        <div className="w-26 md:w-35 pt-5 md:pt-10 pb-5 md:pb-10">
           <div className="text-xl md:text-3xl font-bold text-white pl-8">
-            Levels
+            {t('levels')}
           </div>
           <div className="bg-[#14A5BA] h-1 rounded-r-2xl"></div>
         </div>
@@ -61,7 +63,7 @@ function Home() {
 
       <div className="flex justify-center min-h-[16em] md:min-h-[30em] pb-14 md:pb-18 bg-white min-w-[18.75em]">
         <div className="md:w-lg w-55 text-center font-normal text-sm md:text-lg mt-auto">
-          There are so many countries out there, each with its own unique flag, culture, and history. This page lets you explore the world in a fun and engaging way.
+          {t('homeMessage')}
         </div>
       </div>
 

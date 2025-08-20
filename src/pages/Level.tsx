@@ -1,15 +1,22 @@
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { levelItems } from "@/utils/LevelData";
 import { GameCardList } from "@/feature/GameCardList";
 import { useState } from "react";
+import { useTranslation } from 'react-i18next';
 
 export default function Level() {
   const { id } = useParams();
+  const level = levelItems.find((i) => i.name === id);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameWon, setGameWon] = useState(false);
   const [time, setTime] = useState(0);
   const [resetKey, setResetKey] = useState(0);
   const cardsNumber = levelItems.find(({ name }) => name === id )?.cards;
+  const { t } = useTranslation();
+
+  if (!level) {
+    return <Navigate to="/" replace />
+  };
 
   const handleStartGame = () => {
     setGameStarted(true);
@@ -42,12 +49,12 @@ export default function Level() {
         <div className="absolute z-5 flex flex-col justify-end h-full pb-4">
           <div className="w-fit pb-2">
             <div className="text-xl md:text-3xl font-bold text-white pl-5 md:pl-8">
-              Level {id}
+              {t('level')} {t(`difficulty.${id}`)}
             </div>
             <div className="bg-[#14A5BA] h-1 rounded-r-2xl"></div>
           </div>
           <div className="text-white text-xs md:text-base w-60 md:w-md pl-5 md:pl-8">
-            Here you have {cardsNumber} cards. Find and match all the country flags!
+            {t('levelDescription', {count: cardsNumber})}
           </div>
         </div>
       </div>
@@ -56,7 +63,7 @@ export default function Level() {
       <div className="flex justify-center items-center bg-[#223A4E] py-2 md:py-5 min-h-[2.5em] flex-shrink-0">
         {!gameStarted ? (
           <button onClick={handleStartGame} className="bg-[#14A5BA] px-8 py-2 md:text-lg md:px-8 md:py-2 rounded-lg text-white hover:bg-[#0d8fa3] transition cursor-pointer">
-            Start
+            {t('buttonMessage')}
           </button>
         ) : !gameWon ? (
           <div className="text-white font-medium text-sm md:text-lg">
