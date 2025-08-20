@@ -1,10 +1,10 @@
 export const navItems = [
   {
-    label: "Home",
+    label: "home",
     url: "/",
   },
   {
-    label: "Levels",
+    label: "levels",
     url: "/#levels",
   },
 ];

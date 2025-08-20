@@ -1,0 +1,56 @@
+{
+  "en": {
+    "translation": {
+      "welcome": "Test your geography and memory skills by matching each country to its correct flag.",
+      "home": "Home",
+      "levels": "Levels",
+      "difficulty": {
+        "easy": "Easy",
+        "medium": "Medium",
+        "hard": "Hard"
+      },
+      "cards": "Cards",
+      "homeMessage": "There are so many countries out there, each with its own unique flag, culture, and history. This page lets you explore the world in a fun and engaging way.",
+      "level": "Level",
+      "levelDescription": "Here you have {{count}} cards. Find and match all the country flags!",
+      "buttonMessage": "Start",
+      "startMessage1": "Click \"Start\" to begin!",
+      "startMessage2": "Match all flag pairs as fast as you can",
+      "winMessage1": "You win!",
+      "winMessage2": "Great job matching all the flags!",
+      "winStats": {
+        "time": "Time",
+        "Moves": "Moves",
+        "Accuracy": "Accuracy"
+      },
+      "playAgainMessage": "Play again"
+    } 
+  },
+  "es": {
+    "translation": {
+      "welcome": "Pon a prueba tus habilidades de geografía y memoria emparejando cada país con su bandera correcta.",
+      "home": "Home",
+      "levels": "Niveles",
+      "difficulty": {
+        "easy": "Fácil",
+        "medium": "Medio",
+        "hard": "Difícil"
+      },
+      "cards": "Cartas",
+      "homeMessage": "Existen muchísimos países en el mundo, cada uno con su propia bandera, cultura e historia. Esta página te permite explorarlos de una forma divertida y entretenida.",
+      "level": "Nivel",
+      "levelDescription": "Aquí tienes {{count}} cartas. ¡Encuentra y empareja todas las banderas!",
+      "buttonMessage": "Comenzar",
+      "startMessage1": "Haz clic en \"Comenzar\" para empezar.",
+      "startMessage2": "Empareja todas las banderas lo más rápido que puedas.",
+      "winMessage1": "¡Has ganado!",
+      "winMessage2": "¡Buen trabajo emparejando todas las banderas!",
+      "winStats": {
+        "time": "Tiempo",
+        "Moves": "Movimientos",
+        "Accuracy": "Precisión"
+      },
+      "playAgainMessage": "Jugar de nuevo"
+    }
+  }
+}
