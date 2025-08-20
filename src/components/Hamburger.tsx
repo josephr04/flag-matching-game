@@ -2,6 +2,8 @@ import { useState } from "react";
 import Hamburger from "hamburger-react";
 import { navItems } from "@/utils/NavData";
 import { AnimatePresence, motion } from "framer-motion";
+import { LanguageSelector } from "./LanguageSelector";
+import { useTranslation } from "react-i18next";
 import IMAGES from '@/assets/images/images';
 
 type Label = {
@@ -34,11 +36,6 @@ function HamburgerComponent() {
             className="absolute bg-[#192A38] top-2 right-2 w-50 min-h-50 rounded-md p-8 z-10 flex flex-col justify-between origin-top-right"
           >
             <ListComponent list={navItems} />
-            <div className="flex">
-              <a href={repoLink} target="_blank"  rel="noopener noreferrer" className="w-6">
-                <img src={IMAGES.github} alt="Github Logo" className="w-6 h-6"/>
-              </a>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -47,15 +44,19 @@ function HamburgerComponent() {
 }
 
 function ListComponent({list}: {list: Label[]}) {
+  const { t } = useTranslation();
+
   return (
     <ul className="flex flex-col gap-2">
       {list.map(({label, url}) => (
-        <li className="text-xl text-white"><a href={url} className="hover:text-[#14A5BA] duration-150 ease-out" rel="noopener noreferrer">{label}</a></li>
+        <li className="text-xl text-white"><a href={url} className="hover:text-[#14A5BA] duration-150 ease-out" rel="noopener noreferrer">{t(label)}</a></li>
       ))}
-      <select name="Language" id="language">
-        <option value="">English</option>
-        <option value="">Spanish</option>
-      </select>
+      <LanguageSelector />
+      <div className="flex justify-center mt-2">
+        <a href={repoLink} target="_blank"  rel="noopener noreferrer" className="w-6">
+          <img src={IMAGES.github} alt="Github Logo" className="w-6 h-6"/>
+        </a>
+      </div>
     </ul>
   );
 };
