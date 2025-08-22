@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Tooltip } from 'react-tooltip';
 import { LoadingScreen } from '@/components/Loading/LoadingScreen';
 import Layout from '@/pages/Layout';
-import Home from '@/pages/Home';
+import Home from '@/pages/home';
 import Level from '@/pages/Level';
 import NotFound from '@/pages/NotFound';
 import CountryProvider from '@/context/CountryProvider';
