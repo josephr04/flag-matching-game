@@ -23,7 +23,10 @@
         "Moves": "Moves",
         "Accuracy": "Accuracy"
       },
-      "playAgainMessage": "Play again"
+      "playAgainMessage": "Play again",
+      "notFound1": "Page Not Found :(",
+      "notFound2": "Oops! The page you're looking for doesn't exist or has been moved.",
+      "notFound3": "Go Back Home"
     } 
   },
   "es": {
@@ -50,7 +53,10 @@
         "Moves": "Movimientos",
         "Accuracy": "Precisión"
       },
-      "playAgainMessage": "Jugar de nuevo"
+      "playAgainMessage": "Jugar de nuevo",
+      "notFound1": "Página No Encontrada :(",
+      "notFound2": "¡Oops! La página que estás buscando no existe o ha sido movida.",
+      "notFound3": "Volver a Home"
     }
   }
 }
