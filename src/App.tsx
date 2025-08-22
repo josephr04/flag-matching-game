@@ -1,53 +1,50 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from './pages/Layout';
-import Home from './pages/home';
+import { useState, useEffect } from 'react';
+import { Tooltip } from 'react-tooltip';
+import { LoadingScreen } from '@/components/Loading/LoadingScreen';
+import Layout from '@/pages/Layout';
+import Home from '@/pages/Home';
 import Level from '@/pages/Level';
-import { CountryProvider } from './context/CountryProvider';
+import NotFound from '@/pages/NotFound';
+import CountryProvider from '@/context/CountryProvider';
 import './App.css';
-import { LoadingScreen } from "@/components/Loadings/LoadingScreen";
-import { useState, useEffect } from "react";
-import { Tooltip } from "react-tooltip";
-import 'react-tooltip/dist/react-tooltip.css'
+import 'react-tooltip/dist/react-tooltip.css';
 
 function App() {
-  const [showLoading, setShowLoading] = useState(false);
+  const hasLoaded = localStorage.getItem('hasLoaded');
+  const [showLoading, setShowLoading] = useState(!hasLoaded);
 
   useEffect(() => {
-    const hasLoaded = localStorage.getItem('hasLoaded');
-
     if (!hasLoaded) {
-      setShowLoading(true);
       const timer = setTimeout(() => {
         setShowLoading(false);
         localStorage.setItem('hasLoaded', 'true');
       }, 3000);
+
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [hasLoaded]);
+
+  const handleLoadingFinish = () => {
+    setShowLoading(false);
+    localStorage.setItem('hasLoaded', 'true');
+  };
 
   if (showLoading) {
-    return (
-      <LoadingScreen
-        onFinish={() => {
-          setShowLoading(false);
-          localStorage.setItem("hasLoaded", "true");
-        }}
-      />
-    );
+    return <LoadingScreen onFinish={handleLoadingFinish} />;
   }
 
   return (
     <CountryProvider>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Layout />}>
+          <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path='levels/:id' element={<Level />} />
-            <Route path='*' />
+            <Route path="levels/:id" element={<Level />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
-
       <Tooltip id="tooltip" />
     </CountryProvider>
   );
