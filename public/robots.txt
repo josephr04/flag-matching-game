@@ -1,0 +1,15 @@
+# /public/robots.txt
+User-agent: *
+Allow: /
+
+# Bloquear archivos de desarrollo
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /*.config.*
+
+# Permitir recursos importantes
+Allow: /assets/
+Allow: /images/
+Allow: /flags/
+
+Sitemap: https://flag-matching-game.com/sitemap.xml
