@@ -8,7 +8,15 @@ export const CountryContext = createContext<{
   error: boolean;
 } | undefined>(undefined);
 
-export function CountryProvider({ children }: { children: ReactNode }) {
+export const useCountryContext = () => {
+  const context = useContext(CountryContext);
+  if (!context) {
+    throw new Error("useCountryContext must be used inside of a CountryProvider");
+  }
+  return context;
+};
+
+function CountryProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<CountryData>({} as CountryData);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -49,10 +57,4 @@ export function CountryProvider({ children }: { children: ReactNode }) {
   )
 }
 
-export const useCountryContext = () => {
-  const context = useContext(CountryContext);
-  if (!context) {
-    throw new Error("useCountryContext must be usado dentro de CountryProvider");
-  }
-  return context;
-};
+export default CountryProvider;
