@@ -11,8 +11,6 @@ type Label = {
   url: string;
 };
 
-const repoLink = "https://github.com/josephr04/flag-matching-game"; 
-
 function HamburgerComponent() {
   const [open, setOpen] = useState(false);
 
@@ -44,12 +42,13 @@ function HamburgerComponent() {
 }
 
 function ListComponent({list}: {list: Label[]}) {
+  const repoLink = "https://github.com/josephr04/flag-matching-game"; 
   const { t } = useTranslation();
 
   return (
     <ul className="flex flex-col gap-2">
       {list.map(({label, url}) => (
-        <li className="text-xl text-white"><a href={url} className="hover:text-[#14A5BA] duration-150 ease-out" rel="noopener noreferrer">{t(label)}</a></li>
+        <li key={label} className="text-xl text-white"><a href={url} className="hover:text-[#14A5BA] duration-150 ease-out" rel="noopener noreferrer">{t(label)}</a></li>
       ))}
       <LanguageSelector />
       <div className="flex justify-center mt-2">

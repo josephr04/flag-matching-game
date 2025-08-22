@@ -4,7 +4,7 @@ type Card = {
   name: string,
   cards: number,
   img: string,
-}
+};
 
 function CardComponent({ card }: { card: Card }) {
   const { t } = useTranslation();

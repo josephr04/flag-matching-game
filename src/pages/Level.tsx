@@ -40,7 +40,7 @@ export default function Level() {
   };
 
   return (
-    <div className="font-[Roboto] min-w-[18em] min-h-screen flex flex-col">
+    <div className="min-w-[18em] min-h-screen flex flex-col">
       {/* Header section */}
       <div className="relative bg-[url(/src/assets/images/bg-flags.jpg)] bg-cover min-h-[9em] md:min-h-[13em] min-w-[18em] flex-shrink-0">
         <div className="absolute inset-0 bg-[#223A4E] opacity-75"></div>
@@ -84,5 +84,5 @@ export default function Level() {
         />
       </div>
     </div>
-  )
+  );
 }

@@ -36,14 +36,14 @@ function Home() {
           >
             <img src={IMAGES.flagMatching} alt="Flag Matching Logo" className="z-5 h-33 md:h-55"/>
           </motion.div>
-          <div className="z-5 text-center font-normal font-[Roboto] text-white text-sm md:text-lg md:w-lg w-55">
+          <div className="z-5 text-center font-normal text-white text-sm md:text-lg md:w-lg w-55">
             {t('welcome')}
           </div>
         </motion.div>
         <div className="overlay w-full h-15 z-5"></div>
       </div>
 
-      <div className="flex flex-col min-h-[28em] md:min-h-[40rem] bg-[#223A4E] font-[Roboto] md:pb-15 min-w-[18.75em]" id="levels">
+      <div className="flex flex-col min-h-[28em] md:min-h-[40rem] bg-[#223A4E] md:pb-15 min-w-[18.75em]" id="levels">
         <div className="w-26 md:w-35 pt-5 md:pt-10 pb-5 md:pb-10">
           <div className="text-xl md:text-3xl font-bold text-white pl-8">
             {t('levels')}

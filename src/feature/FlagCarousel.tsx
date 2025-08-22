@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { useCountryContext } from "@/context/CountryProvider";
-import { LoadingBar } from "@/components/Loadings/LoadingBar";
+import { LoadingBar } from "@/components/Loading/LoadingBar";
 import type { CountryData } from '@/types/country';
 
 export function FlagCarousel() {
@@ -36,7 +36,7 @@ export function FlagCarousel() {
 function Flag({ code, name }: CountryData) {
   return (
     <a href={`https://en.wikipedia.org/wiki/${name}`} target="_blank" rel="noopener noreferrer" data-tooltip-id="tooltip" data-tooltip-content={name} data-tooltip-place="top">
-      <img src={`https://flagcdn.com/h240/${code}.png`} loading='lazy' decoding="async" alt={name} className='w-[3.75em] h-[2.5em]' />
+      <img src={`https://flagcdn.com/h240/${code}.png`} loading='lazy' decoding="async" alt={`Flag of ${name}`} className='w-[3.75em] h-[2.5em]' />
     </a>
   );
 }
