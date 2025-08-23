@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Tooltip } from 'react-tooltip';
 import { LoadingScreen } from '@/components/Loading/LoadingScreen';
+import { SpeedInsights } from "@vercel/speed-insights/react"
+import { Analytics } from "@vercel/analytics/react"
 import Layout from '@/pages/Layout';
 import Home from '@/pages/home';
 import Level from '@/pages/Level';
@@ -45,7 +47,10 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      
       <Tooltip id="tooltip" />
+      <Analytics />
+      <SpeedInsights />
     </CountryProvider>
   );
 }
