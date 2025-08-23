@@ -2,8 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { Tooltip } from 'react-tooltip';
 import { LoadingScreen } from '@/components/Loading/LoadingScreen';
-import { SpeedInsights } from "@vercel/speed-insights/react"
-import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
+import { useGoogleAnalytics } from '@/hooks/useGoogleAnalytics';
 import Layout from '@/pages/Layout';
 import Home from '@/pages/home';
 import Level from '@/pages/Level';
@@ -13,6 +14,7 @@ import './App.css';
 import 'react-tooltip/dist/react-tooltip.css';
 
 function App() {
+  useGoogleAnalytics();
   const hasLoaded = localStorage.getItem('hasLoaded');
   const [showLoading, setShowLoading] = useState(!hasLoaded);
 
